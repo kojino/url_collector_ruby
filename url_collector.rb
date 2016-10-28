@@ -5,20 +5,20 @@ require 'slack-ruby-client'
 require 'uri'
 require 'pg'
 require 'active_record'
-require './config.rb'
+# require './config.rb'
 # connect to database
-ActiveRecord::Base.establish_connection(:adapter=>CONFIG_INFO::INFO['adapter'],
-  :host => CONFIG_INFO::INFO['host'],
-  :username => CONFIG_INFO::INFO['username'],
-  :password => CONFIG_INFO::INFO['password'],
-  :database => CONFIG_INFO::INFO['database'])
+ActiveRecord::Base.establish_connection(:adapter=>ENV['adapter'],
+  :host => ENV['host'],
+  :username => ENV['username'],
+  :password => ENV['password'],
+  :database => ENV['database'])
 
 # create url class for talking to the db
 class Url < ActiveRecord::Base
 end
 # configure slack client
 Slack.configure do |config|
-  config.token = CONFIG_INFO::INFO['token']
+  config.token = ENV['token']
 
 end
 client = Slack::RealTime::Client.new
