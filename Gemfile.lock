@@ -43,6 +43,7 @@ GEM
     oga (2.7)
       ast
       ruby-ll (~> 2.1)
+    pg (0.18.4)
     rake (11.3.0)
     ruby-ll (2.1.2)
       ansi
@@ -73,6 +74,7 @@ PLATFORMS
 
 DEPENDENCIES
   link_thumbnailer
+  pg
   slack-ruby-client
 
 BUNDLED WITH
